@@ -8,15 +8,17 @@ $uri = "http://localhost:3000";
 try {
     $Response = Invoke-WebRequest -URI $uri -UseBasicParsing -ContentType $type -Method POST -Body $body;
 
-    $ResVersion = ($Response | ConvertFrom-Json).version;
+    $Json = $Response | ConvertFrom-Json;
+    $ResVersion = $Json.version;
+    $ResKey = $Json.key;
 
-    Write-Output "The new version number is now set to $ResVersion";
+    Write-Output "The version number $ResVersion is valid with key $ResKey";
 }
 catch {
     try {
         $ResVersion = ($_ | ConvertFrom-Json).version;
 
-        Write-Output "Failed to set the new version number to $Version, the old version number is $ResVersion";
+        Write-Output "The version number $Version is not valid, the old version number is $ResVersion";
 
         exit 1;
     }
