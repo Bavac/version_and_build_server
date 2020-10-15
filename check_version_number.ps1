@@ -1,17 +1,16 @@
-## Example usage: test.ps1 -Version 4.1.1
+## Example usage: check_version_number.ps1 -Version 4.1.1
 param([Parameter(Mandatory=$true)][string]$Version);
 
 $type = "application/json";
 $body = @{ version_number = $Version } | ConvertTo-Json;
+$uri = "http://localhost:3000";
 
 try {
-    $Response = Invoke-WebRequest http://localhost:3000 -ContentType $type -Method POST -Body $body;
+    $Response = Invoke-WebRequest -URI $uri -UseBasicParsing -ContentType $type -Method POST -Body $body;
 
     $ResVersion = ($Response | ConvertFrom-Json).version;
 
     Write-Output "The new version number is now set to $ResVersion";
-
-    exit 0;
 }
 catch {
     try {
