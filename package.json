@@ -1,0 +1,22 @@
+{
+  "name": "global_build_number_server",
+  "version": "1.0.0",
+  "description": "Version and build number server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bavac/version_and_build_server.git"
+  },
+  "author": "Bavac",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bavac/version_and_build_server/issues"
+  },
+  "homepage": "https://github.com/Bavac/version_and_build_server#readme",
+  "dependencies": {
+    "node-windows": "^1.0.0-beta.5"
+  }
+}

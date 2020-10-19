@@ -8,6 +8,9 @@ try {
     $ResVersion = ($Response | ConvertFrom-Json).build;
 
     Write-Output "The build number is $ResVersion";
+
+    exit 0;
+    return $ResVersion;
 }
 catch {
     Write-Output "Failed to get a response from the server";
