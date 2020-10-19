@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Bavac/version_and_build_server#readme",
   "dependencies": {
+    "minimist": "^1.2.5",
     "node-windows": "^1.0.0-beta.5"
   }
 }
